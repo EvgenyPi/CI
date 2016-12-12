@@ -27,7 +27,7 @@ public class CrimeActivity extends SingleFragmentActivity {
         return CrimeFragment.newInstance(crimeId);
     }
 
-    @Override
+/*    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
@@ -41,5 +41,5 @@ public class CrimeActivity extends SingleFragmentActivity {
                     .add(R.id.fragmentContainer, fragment)
                     .commit();
         }
-    }
+    }*/
 }

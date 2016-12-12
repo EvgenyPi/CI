@@ -13,17 +13,17 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
 
-    public static final String ARG_CRIME_ID = "crime_id";
+    private static final String ARG_CRIME_ID = "crime_id";
 
     private Crime mCrime;
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private UUID crimeId;
 
     public static CrimeFragment newInstance(UUID crimeId) {
         Bundle args = new Bundle();
@@ -34,16 +34,17 @@ public class CrimeFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        mCrime = new Crime();
+        //mCrime = new Crime();
 
         // !!!!!!!!!!!!!!!!!!!!!! ERROR HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!
-        UUID crimeId = (UUID) getArguments()
-                .getSerializable(ARG_CRIME_ID);
+        UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
+
     }
 
     @Nullable
@@ -72,12 +73,12 @@ public class CrimeFragment extends Fragment {
         });
 
         // Форматирование даты в читаемый вид
-        SimpleDateFormat fmt = new SimpleDateFormat("E, MMM dd, yyyy");
-        String fmtDate = fmt.format(mCrime.getDate());
+//        SimpleDateFormat fmt = new SimpleDateFormat("E, MMM dd, yyyy");
+//        String fmtDate = fmt.format(mCrime.getDate());
 
         mDateButton = (Button) v.findViewById(R.id.crime_date);
-        mDateButton.setText(fmtDate);
-//        mDateButton.setText(mCrime.getDate().toString());
+//        mDateButton.setText(fmtDate);
+        mDateButton.setText(mCrime.getDate().toString());
         mDateButton.setEnabled(false);
 
         mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
