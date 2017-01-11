@@ -1,11 +1,11 @@
-package com.evgeny.criminalintent;
+package com.evgeny.criminalintent.Deleted;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+
+import com.evgeny.criminalintent.CrimeFragment;
+import com.evgeny.criminalintent.SingleFragmentActivity;
 
 import java.util.UUID;
 
