@@ -29,6 +29,7 @@ public class CrimeFragment extends Fragment {
     private Crime mCrime;
     private EditText mTitleField;
     private Button mDateButton;
+    private Button mDelButton;
     private CheckBox mSolvedCheckBox;
     private UUID crimeId;
 
@@ -106,6 +107,16 @@ public class CrimeFragment extends Fragment {
             }
         });
 
+        //Delete crime button
+        mDelButton = (Button) v.findViewById(R.id.crime_del);
+        mDelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CrimeLab.get(getActivity()).delCrime(mCrime);
+                getActivity().onBackPressed();
+
+            }
+        });
 
         return v;
     }
