@@ -14,6 +14,7 @@ public class Crime {
     private Date mDate;
     private boolean mSolved;
     private String mSuspect;
+    private String mFileUri;
 
 
     public Crime () {
@@ -68,4 +69,5 @@ public class Crime {
     public String getPhotoFilename() {
         return "IMG_" + getId().toString() + ".jpg";
     }
+
 }
